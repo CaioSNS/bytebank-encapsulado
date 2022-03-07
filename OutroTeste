@@ -1,0 +1,35 @@
+
+public class OutroTeste {
+
+	public static void main(String[] args) {
+		
+		Conta conta = new Conta();
+		Cliente Caio = new Cliente();
+		
+		Caio.setNome("Caio Sakaguti");
+		Caio.setCpf("38366418871");
+		Caio.setProfissao("Programador");
+		
+		conta.setTitular(Caio);
+		conta.setAgencia(272);
+		conta.setSaldo(5000);
+		conta.setNumero(3175650);
+		
+		double ValorDoSaque = 50.0;
+		
+			if (conta.getSaldo()>= ValorDoSaque) {
+				conta.saca(ValorDoSaque);
+				System.out.println(conta.getSaldo());
+			}else {
+				System.out.println("Saldo Insuficiente");
+					
+			}
+		
+		
+		
+
+		}
+	}
+	
+	
+	
