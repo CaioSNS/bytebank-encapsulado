@@ -1,41 +1,65 @@
-
-public class TestaGeteSet {
-
-	public static void main(String[] args) {  
-		Conta conta = new Conta();
-		// conta.numero = 1337;
+public class Conta {;
+	private double  saldo;
+	private int agencia;
+	private int numero;
+	private Cliente titular;
+	
+	
+	public void deposita(double valor) {
+		this.saldo += valor;
 		
-		conta.setNumero(1337);
-		
-		System.out.println(conta.getNumero());
-		
-		Cliente Caio = new Cliente();
-		
-		
-		//conta.titular = Caio;
-		// Não compila porque está em privado
-		
-		Caio.setNome("Caio Sakaguti");
-		conta.setTitular(Caio);
-		
-		System.out.println(conta.getTitular().getNome());
-
-		conta.getTitular().setProfissao("Programador");
-		
-		// agora em duas linhas
-		
-		Cliente titularDaConta = conta.getTitular();
-		titularDaConta.setProfissao("Programador");
-		
-		System.out.println(titularDaConta);
-		System.out.println(Caio);
-		System.out.println(conta.getTitular());
+			}
+	public boolean saca(double valor) {
+		if (saldo >= valor) {
+			this.saldo -= valor;
+			return true;
+		} else {
+			return false;
+		}
+			
+	}
+	
+	public boolean transfere(double valor, Conta destino) {
+		if (saldo >= valor ) {
+			this.saldo -= valor;
+			destino.deposita(valor);
+			return true;
+		}
+			return false;
+		}
 		
 	
-		System.out.println(conta.getTitular().getProfissao());
+	public double getsaldo() {
+		return this.saldo;
+		
+	}
+	
+	public int getNumero() {
+		return this.numero;
+		
+	}
+	
+	public void setNumero(int numero) {
+		this.numero = numero;
+		System.out.println(getNumero());
 		
 		
+	}
+	
+	public int getAgencia() {
+		return this.agencia;
+	}
+	
+	public void setAgencia(int agencia) {
+		this.agencia = agencia;
+		System.out.println(getAgencia());
 		
-		
-	} 
+		 	}
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
+	
+	public Cliente getTitular() {
+		return titular;
+	}
 }
